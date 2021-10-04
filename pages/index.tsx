@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Coding Test</title>
+        <title>Coding Tests</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
