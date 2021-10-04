@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Text } from "@chakra-ui/react"
 
 const DynamicText = () => {
-  const [value, setValue] = useState("Random Text");
+  const [value, setValue] = useState("Random Text 2");
 
   const changeValue = (newValue) => {
     setValue(newValue);
