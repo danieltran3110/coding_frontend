@@ -43,21 +43,12 @@ export default function login() {
                 }
             }
             setLoading(false);
-            resetInputs();
         } else {
             setLoading(false);
         }
     }
 
-    const resetInputs = () => {
-        setEmail('');
-        setPassword('');
-    }
-
     const verifyInputs = () => {
-        console.log('email', email);
-        console.log('password', password);
-
         if (!email || !password) {
             warning(Toast, "All the input is required");
             return false;
@@ -82,9 +73,9 @@ export default function login() {
                 <Text fontSize="2xl">Login</Text>
                 <FormControl id="email">
                     <FormLabel>Email address</FormLabel>
-                    <Input onChange={(e) => setEmail(e.currentTarget.value)} id="email" type="email" />
+                    <Input value={email} onChange={(e) => setEmail(e.currentTarget.value)} id="email" type="email" />
                     <FormLabel>Password</FormLabel>
-                    <Input onChange={(e) => setPassword(e.currentTarget.value)} id="password" type="password" />
+                    <Input value={password} onChange={(e) => setPassword(e.currentTarget.value)} id="password" type="password" />
                     <Flex justifyContent="space-between" alignItems="center"  marginTop="5">
                         <Link href="/signUp">Create new account?</Link>
                         <Button isLoading={loading} onClick={handleLogin} colorScheme="blue">Login</Button>

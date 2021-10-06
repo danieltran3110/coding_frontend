@@ -37,23 +37,12 @@ export default function signUp() {
                 warning(Toast, error.message);
             }
             setLoading(false);
-            resetInputs();
         } else {
             setLoading(false);
         }
     }
 
-    const resetInputs = () => {
-        setEmail('');
-        setPassword('');
-        setConfirmPassword('');
-    }
-
     const verifyInputs = () => {
-        console.log('email', email);
-        console.log('password', password);
-        console.log('confirmPassword', confirmPassword);
-
         if (!email || !password || !confirmPassword) {
             warning(Toast, "All the input is required");
             return false;
@@ -84,11 +73,11 @@ export default function signUp() {
                 <Text fontSize="2xl">Sign Up</Text>
                 <FormControl id="email">
                     <FormLabel>Email address</FormLabel>
-                    <Input onChange={(e) => setEmail(e.currentTarget.value)} type="email" />
+                    <Input value={email} onChange={(e) => setEmail(e.currentTarget.value)} type="email" />
                     <FormLabel>Password</FormLabel>
-                    <Input onChange={(e) => setPassword(e.currentTarget.value)} type="password" />
+                    <Input value={password} onChange={(e) => setPassword(e.currentTarget.value)} type="password" />
                     <FormLabel>Confirm Password</FormLabel>
-                    <Input onChange={(e) => setConfirmPassword(e.currentTarget.value)} type="password" />
+                    <Input value={confirmPassword} onChange={(e) => setConfirmPassword(e.currentTarget.value)} type="password" />
                     <Flex justifyContent="flex-end" marginTop="5">
                         <Button isLoading={loading} onClick={handleSignUp} colorScheme="blue">Sign Up</Button>
                     </Flex>
