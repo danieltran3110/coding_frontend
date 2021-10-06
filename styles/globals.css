@@ -14,3 +14,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.custom-link a {
+    background-color: green;
+    padding: 10px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+}
