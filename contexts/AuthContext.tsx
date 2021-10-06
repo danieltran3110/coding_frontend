@@ -4,12 +4,8 @@ import { auth } from 'firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@firebase/auth';
 const AuthContext = createContext({});
 
-import { useRouter } from 'next/router';
-
 export const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
-    const router = useRouter();
-    const [userAuthLoading, setUserAuthLoading] = useState(true);
 
     const signUpAccount = (email: string, password: string) => {
         return createUserWithEmailAndPassword(auth, email, password);
@@ -24,10 +20,8 @@ export const AuthProvider = ({children}) => {
     }
 
     useEffect(() => {
-        setUserAuthLoading(true);
         const unsubscribe = auth.onAuthStateChanged(currentUser => {
             setUser(currentUser);
-            setUserAuthLoading(false);
         })
 
         return unsubscribe;
@@ -37,8 +31,7 @@ export const AuthProvider = ({children}) => {
         user,
         signUpAccount,
         loginAccount,
-        logoutAccount,
-        userAuthLoading
+        logoutAccount
     }
 
     return(

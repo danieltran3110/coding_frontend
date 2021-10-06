@@ -9,15 +9,12 @@ import { useRouter } from 'next/router';
 import protectedRoute from '../hooks/route';
 
 const Home = () => {
-    const { user, logoutAccount, userAuthLoading } : any = useAuth();
+    const { user, logoutAccount } : any = useAuth();
     const [loading, setLoading] = useState(false);
     const router = useRouter();
 
-    console.log('user: ', user);
-
     const dynamicTextEl = useRef(null);
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.log(e.target.value);
         dynamicTextEl.current.changeValue(e.target.value);
     };
 
