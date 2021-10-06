@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {
     FormControl,
     FormLabel,
-    FormErrorMessage,
     Text,
     Container,
     Input,
@@ -12,7 +11,6 @@ import {
   } from "@chakra-ui/react";
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from "@chakra-ui/react"
-import { auth } from '../firebase';
 import { validateEmail, warning } from 'utils/common';
 import {useRouter} from "next/router";
 import Head from "next/head";
